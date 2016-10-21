@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 /**
  * 
  * @author urbain
@@ -96,10 +99,12 @@ public class Bus  implements Serializable {
 		this.trajet = trajet;
 	}
 
+	@JsonIgnore
 	public Collection<Passenger> getPassengers() {
 		return passengers;
 	}
 
+	@JsonSetter
 	public void setPassengers(Collection<Passenger> passengers) {
 		this.passengers = passengers;
 	}

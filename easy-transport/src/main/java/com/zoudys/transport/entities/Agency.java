@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 /**
  * 
  * @author urbain
@@ -85,18 +88,22 @@ public class Agency implements Serializable {
 		this.city = city;
 	}
 
+	@JsonIgnore
 	public Collection<Bus> getBuses() {
 		return buses;
 	}
 
+	@JsonSetter
 	public void setBuses(Collection<Bus> buses) {
 		this.buses = buses;
 	}
 
+	@JsonIgnore
 	public Collection<CarDriver> getCarDrivers() {
 		return carDrivers;
 	}
 
+	@JsonSetter
 	public void setCarDrivers(Collection<CarDriver> carDrivers) {
 		this.carDrivers = carDrivers;
 	}
